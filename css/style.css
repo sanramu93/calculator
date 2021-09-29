@@ -52,6 +52,17 @@ button {
   background-color: rgba(34, 184, 207, 0.735);
 }
 
+.result {
+  font-size: 1.8rem;
+  position: absolute;
+  color: #0b7285;
+  padding: 0.8rem;
+}
+
+.container-user-input {
+  display: relative;
+}
+
 .user-input {
   width: 100%;
   padding: 4.8rem 0.5rem;
@@ -67,8 +78,14 @@ button {
   color: #212529a7;
 }
 
+.container-user-input-btns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.4rem;
+}
+
 .btn {
-  width: 24%;
+  width: 100%;
   height: 4.8rem;
   background-color: #c5f6fa;
   color: #212529;
@@ -80,4 +97,5 @@ button {
 .btn-equal {
   width: 100%;
   height: 6.4rem;
+  grid-column: 1 / -1;
 }
