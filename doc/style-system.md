@@ -14,13 +14,24 @@
 ## 02 Colors
 
 - Main: #0b7285
-- Secondary: #22b8cf
+- Secondary:
+
+  -#22b8cf
+  -#3bc9db
+
 - Shades :
-  #e3fafc
+
+  -#e3fafc
+
 - Grays:
+
   - #212529
   - #ced4da
   - #e9ecef
+
+- Hover States:
+
+  -#e3fafc
 
 ## 03 IMG
 
@@ -28,8 +39,11 @@
 
 ## 05 Shadows
 
+- Normal: box-shadow: 0 10px 10px rgba(0, 0, 0, 0.09);
+
 ## 06 Border-radius(px)
 
-- Min: 2
+- Min: border-radius: 2px;
+- Normal: border-radius: 6px;
 
 ## 07 Whitespace

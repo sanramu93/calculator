@@ -1,5 +1,5 @@
 "use strict";
-const resultElm = document.querySelector(".result");
+const prevResultElm = document.querySelector(".result");
 const userInputElm = document.querySelector(".user-input");
 const numElms = document.querySelectorAll(".btn-num");
 
@@ -7,64 +7,42 @@ const clearElm = document.querySelector(".btn-clear");
 
 const equalElm = document.querySelector(".btn-equal");
 
-// OPERATIONS
+// FUNCTIONALITY
 
-// const sInput = "++++++++";
-// const sOutput = sInput.replace(/(.)\1{1,}/g, "$1");
-// console.log(sOutput);
-
-let inputValues = [];
-let prevResult = 0;
-let currentResult = 0;
+let expr = "";
+let prevResult = "";
 
 const isOperator = function (value) {
-  if (value === ".") return false;
-  return Number.isNaN(+value) ? true : false;
+  return !isNaN(+value) || value === "." ? false : true;
 };
 
-const press = function (btn) {
-  let value = btn.textContent;
-  inputValues.push(value);
-  const expr = inputValues.join("");
+const press = function (value) {
+  expr += value;
   userInputElm.value = expr;
 };
 
-const clear = function () {
-  inputValues = [];
-  userInputElm.value = "";
-  resultElm.textContent = 0;
-  prevResult = 0;
-};
-
 const evaluate = function () {
-  const expr = inputValues.join("");
-  const result = eval(expr);
+  const newExpr = [prevResult, expr].join("");
+  const result = eval(newExpr);
   userInputElm.value = result;
   prevResult = result;
-  resultElm.textContent = prevResult;
-  inputValues = [];
+  prevResultElm.textContent = prevResult;
+  expr = "";
 };
 
-const usePrevResult = function () {
-  // Check if value is operator in order to continue calculation
-  if (prevResult !== 0) {
-    inputValues.unshift(prevResult);
-  }
-
-  if (!isOperator(inputValues[1])) {
-    inputValues.shift();
-  }
-  console.log(inputValues);
+const clear = function () {
+  expr = "";
+  prevResult = "";
+  userInputElm.value = "";
+  prevResultElm.textContent = 0;
 };
 
-// Event listeners
-numElms.forEach((el) => {
-  el.addEventListener("click", () => press(el));
-});
+///////////////////
+// EVENT LISTENERS
+numElms.forEach((el) =>
+  el.addEventListener("click", () => press(el.textContent))
+);
 
-clearElm.addEventListener("click", () => clear());
+equalElm.addEventListener("click", evaluate);
 
-equalElm.addEventListener("click", () => {
-  usePrevResult();
-  evaluate();
-});
+clearElm.addEventListener("click", clear);

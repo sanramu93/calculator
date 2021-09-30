@@ -42,14 +42,15 @@ body {
 .calculator,
 .user-input,
 button {
-  border-radius: 2px;
+  border-radius: 6px;
 }
 
 .calculator {
   width: 40rem;
   margin: auto;
-  padding: 1.5rem 2rem;
+  padding: 2.4rem;
   background-color: rgba(34, 184, 207, 0.735);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.09);
 }
 
 .result {
@@ -65,7 +66,7 @@ button {
 
 .user-input {
   width: 100%;
-  padding: 4.8rem 0.5rem;
+  padding: 3.6rem 0.5rem;
   background-color: #e3fafc;
   color: #0b7285;
   font-size: 3.6rem;
@@ -81,21 +82,35 @@ button {
 .container-user-input-btns {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0.4rem;
+  gap: 0.8rem;
 }
 
-.btn {
+.btn,
+.btn:link {
   width: 100%;
-  height: 4.8rem;
+  height: 4.2rem;
   background-color: #c5f6fa;
   color: #212529;
   font-size: 2.4rem;
   border: none;
   margin-bottom: 0.4rem;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.07);
+  transition: all 0.1s;
+}
+
+.btn:hover {
+  background-color: #e3fafc;
+  transform: scale(1.03);
+}
+
+.btn:active {
+  transform: scale(1);
 }
 
 .btn-equal {
   width: 100%;
   height: 6.4rem;
   grid-column: 1 / -1;
+  color: #212529;
+  background-color: rgba(255, 255, 255, 0.687);
 }
