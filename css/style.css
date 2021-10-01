@@ -46,7 +46,7 @@ button {
 }
 
 .calculator {
-  width: 40rem;
+  width: 35rem;
   margin: auto;
   padding: 2.4rem;
   background-color: rgba(34, 184, 207, 0.735);
@@ -66,7 +66,7 @@ button {
 
 .user-input {
   width: 100%;
-  padding: 3.6rem 0.5rem;
+  padding: 2.4rem 0.5rem;
   background-color: #e3fafc;
   color: #0b7285;
   font-size: 3.6rem;

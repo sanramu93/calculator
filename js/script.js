@@ -7,13 +7,14 @@ const clearElm = document.querySelector(".btn-clear");
 
 const equalElm = document.querySelector(".btn-equal");
 
+///////////////////
 // FUNCTIONALITY
 
 let expr = "";
 let prevResult = "";
 
-const isOperator = function (value) {
-  return !isNaN(+value) || value === "." ? false : true;
+const checkIfNum = function (value) {
+  return isNaN(+value) || value === "." ? false : true;
 };
 
 const press = function (value) {
@@ -22,8 +23,10 @@ const press = function (value) {
 };
 
 const evaluate = function () {
+  checkIfNum(expr[0]) ? (prevResult = "") : prevResult;
   const newExpr = [prevResult, expr].join("");
   const result = eval(newExpr);
+
   userInputElm.value = result;
   prevResult = result;
   prevResultElm.textContent = prevResult;
@@ -46,3 +49,24 @@ numElms.forEach((el) =>
 equalElm.addEventListener("click", evaluate);
 
 clearElm.addEventListener("click", clear);
+
+///////////////////
+// KEY EVENTS
+
+document.addEventListener("keydown", (e) => {
+  if (
+    e.key >= 0 ||
+    e.key <= 9 ||
+    e.key === "." ||
+    e.key === "+" ||
+    e.key === "-" ||
+    e.key === "*" ||
+    +e.key === "/"
+  )
+    press(e.key);
+
+  if (e.key === "Enter" || e.key === "=") evaluate();
+
+  if (e.key === "Backspace" || e.key === "Delete") clear();
+  console.log(e.key);
+});
