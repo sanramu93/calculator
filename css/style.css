@@ -100,7 +100,7 @@ button {
 
 .btn:hover {
   background-color: #e3fafc;
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .btn:active {

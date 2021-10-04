@@ -61,12 +61,12 @@ document.addEventListener("keydown", (e) => {
     e.key === "+" ||
     e.key === "-" ||
     e.key === "*" ||
-    +e.key === "/"
-  )
+    e.key === "/"
+  ) {
     press(e.key);
+  }
 
   if (e.key === "Enter" || e.key === "=") evaluate();
 
   if (e.key === "Backspace" || e.key === "Delete") clear();
-  console.log(e.key);
 });
