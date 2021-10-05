@@ -26,14 +26,17 @@ const press = function (value) {
 };
 
 const evaluate = function () {
-  checkIfNum(expr[0]) ? (prevResult = "") : prevResult;
-  const newExpr = [prevResult, expr].join("");
-  const result = eval(newExpr);
-
-  userInputElm.value = result;
-  prevResult = result;
-  prevResultElm.textContent = prevResult;
-  expr = "";
+  try {
+    checkIfNum(expr[0]) ? (prevResult = "") : prevResult;
+    const newExpr = [prevResult, expr].join("");
+    const result = eval(newExpr);
+    userInputElm.value = result;
+    prevResult = result;
+    prevResultElm.textContent = prevResult;
+    expr = "";
+  } catch {
+    clear();
+  }
 };
 
 const clear = function () {
