@@ -1,4 +1,7 @@
 "use strict";
+
+///////////////////
+// ELEMENTS
 const prevResultElm = document.querySelector(".result");
 const userInputElm = document.querySelector(".user-input");
 const numElms = document.querySelectorAll(".btn-num");
@@ -14,7 +17,7 @@ let expr = "";
 let prevResult = "";
 
 const checkIfNum = function (value) {
-  return isNaN(+value) || value === "." ? false : true;
+  return !isNaN(+value) || value === "." ? true : false;
 };
 
 const press = function (value) {
@@ -42,6 +45,7 @@ const clear = function () {
 
 ///////////////////
 // EVENT LISTENERS
+
 numElms.forEach((el) =>
   el.addEventListener("click", () => press(el.textContent))
 );
